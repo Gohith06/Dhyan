@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DDoS Attack Prediction</title>
+</head>
+<body>
+    <h1>DDoS Attack Prediction</h1>
+    <div>
+        <label for="duration">Duration:</label>
+        <input type="number" id="duration" name="duration" min="0"><br><br>
+
+        <label for="protocol_type">Protocol Type:</label>
+        <input type="text" id="protocol_type" name="protocol_type"><br><br>
+
+        <label for="service">Service:</label>
+        <input type="text" id="service" name="service"><br><br>
+
+        <label for="flag">Flag:</label>
+        <input type="text" id="flag" name="flag"><br><br>
+
+        <label for="src_bytes">Source Bytes:</label>
+        <input type="number" id="src_bytes" name="src_bytes" min="0"><br><br>
+
+        <label for="dst_bytes">Destination Bytes:</label>
+        <input type="number" id="dst_bytes" name="dst_bytes" min="0"><br><br>
+
+        <label for="land">Land:</label>
+        <input type="number" id="land" name="land" min="0" max="1"><br><br>
+
+        <label for="wrong_fragment">Wrong Fragment:</label>
+        <input type="number" id="wrong_fragment" name="wrong_fragment" min="0"><br><br>
+
+        <label for="urgent">Urgent:</label>
+        <input type="number" id="urgent" name="urgent" min="0"><br><br>
+
+        <label for="hot">Hot:</label>
+        <input type="number" id="hot" name="hot" min="0"><br><br>
+
+        <label for="num_failed_logins">Num Failed Logins:</label>
+        <input type="number" id="num_failed_logins" name="num_failed_logins" min="0"><br><br>
+
+        <label for="logged_in">Logged In:</label>
+        <input type="number" id="logged_in" name="logged_in" min="0" max="1"><br><br>
+
+        <label for="num_compromised">Num Compromised:</label>
+        <input type="number" id="num_compromised" name="num_compromised" min="0"><br><br>
+
+        <label for="root_shell">Root Shell:</label>
+        <input type="number" id="root_shell" name="root_shell" min="0" max="1"><br><br>
+
+        <label for="su_attempted">SU Attempted:</label>
+        <input type="number" id="su_attempted" name="su_attempted" min="0"><br><br>
+
+        <label for="num_root">Num Root:</label>
+        <input type="number" id="num_root" name="num_root" min="0"><br><br>
+
+        <label for="num_file_creations">Num File Creations:</label>
+        <input type="number" id="num_file_creations" name="num_file_creations" min="0"><br><br>
+
+        <label for="num_shells">Num Shells:</label>
+        <input type="number" id="num_shells" name="num_shells" min="0"><br><br>
+
+        <label for="num_access_files">Num Access Files:</label>
+        <input type="number" id="num_access_files" name="num_access_files" min="0"><br><br>
+
+        <label for="num_outbound_cmds">Num Outbound Cmds:</label>
+        <input type="number" id="num_outbound_cmds" name="num_outbound_cmds" min="0"><br><br>
+
+        <label for="is_host_login">Is Host Login:</label>
+        <input type="number" id="is_host_login" name="is_host_login" min="0" max="1"><br><br>
+
+        <label for="is_guest_login">Is Guest Login:</label>
+        <input type="number" id="is_guest_login" name="is_guest_login" min="0" max="1"><br><br>
+
+        <label for="count">Count:</label>
+        <input type="number" id="count" name="count" min="0"><br><br>
+
+        <label for="srv_count">Service Count:</label>
+        <input type="number" id="srv_count" name="srv_count" min="0"><br><br>
+
+        <label for="serror_rate">Serror Rate:</label>
+        <input type="number" id="serror_rate" name="serror_rate" min="0" step="0.01" max="1"><br><br>
+
+        <label for="srv_serror_rate">Service Serror Rate:</label>
+        <input type="number" id="srv_serror_rate" name="srv_serror_rate" min="0" step="0.01" max="1"><br><br>
+
+        <label for="rerror_rate">Rerror Rate:</label>
+        <input type="number" id="rerror_rate" name="rerror_rate" min="0" step="0.01" max="1"><br><br>
+
+        <label for="srv_rerror_rate">Service Rerror Rate:</label>
+        <input type="number" id="srv_rerror_rate" name="srv_rerror_rate" min="0" step="0.01" max="1"><br><br>
+
+        <label for="same_srv_rate">Same Service Rate:</label>
+        <input type="number" id="same_srv_rate" name="same_srv_rate" min="0" step="0.01" max="1"><br><br>
+
+        <label for="diff_srv_rate">Different Service Rate:</label>
+        <input type="number" id="diff_srv_rate" name="diff_srv_rate" min="0" step="0.01" max="1"><br><br>
+
+        <label for="srv_diff_host_rate">Service Diff Host Rate:</label>
+        <input type="number" id="srv_diff_host_rate" name="srv_diff_host_rate" min="0" step="0.01" max="1"><br><br>
+
+        <label for="dst_host_count">Destination Host Count:</label>
+        <input type="number" id="dst_host_count" name="dst_host_count" min="0"><br><br>
+
+        <label for="dst_host_srv_count">Destination Host Service Count:</label>
+        <input type="number" id="dst_host_srv_count" name="dst_host_srv_count" min="0"><br><br>
+
+        <label for="dst_host_same_srv_rate">Destination Host Same Service Rate:</label>
+        <input type="number" id="dst_host_same_srv_rate" name="dst_host_same_srv_rate" min="0" step="0.01" max="1"><br><br>
+
+        <label for="dst_host_diff_srv_rate">Destination Host Different Service Rate:</label>
+        <input type="number" id="dst_host_diff_srv_rate" name="dst_host_diff_srv_rate" min="0" step="0.01" max="1"><br><br>
+
+        <label for="dst_host_same_src_port_rate">Destination Host Same Source Port Rate:</label>
+        <input type="number" id="dst_host_same_src_port_rate" name="dst_host_same_src_port_rate" min="0" step="0.01" max="1"><br><br>
+
+        <label for="dst_host_srv_diff_host_rate">Destination Host Service Diff Host Rate:</label>
+        <input type="number" id="dst_host_srv_diff_host_rate" name="dst_host_srv_diff_host_rate" min="0" step="0.01" max="1"><br><br>
+
+        <label for="dst_host_serror_rate">Destination Host Serror Rate:</label>
+        <input type="number" id="dst_host_serror_rate" name="dst_host_serror_rate" min="0" step="0.01" max="1"><br><br>
+
+        <label for="dst_host_srv_serror_rate">Destination Host Service Serror Rate:</label>
+        <input type="number" id="dst_host_srv_serror_rate" name="dst_host_srv_serror_rate" min="0" step="0.01" max="1"><br><br>
+
+        <label for="dst_host_rerror_rate">Destination Host Rerror Rate:</label>
+        <input type="number" id="dst_host_rerror_rate" name="dst_host_rerror_rate" min="0" step="0.01" max="1"><br><br>
+
+        <label for="dst_host_srv_rerror_rate">Destination Host Service Rerror Rate:</label>
+        <input type="number" id="dst_host_srv_rerror_rate" name="dst_host_srv_rerror_rate" min="0" step="0.01" max="1"><br><br>
+
+        <label for="level">Level:</label>
+        <input type="number" id="level" name="level" min="0" max="1"><br><br>
+
+        <button onclick="predict()">Predict</button>
+    </div>
+
+    <div id="predictionResult"></div>
+
+    <script>
+        function predict() {
+            // Get input values
+            var duration = document.getElementById('duration').value;
+            var protocol_type = document.getElementById('protocol_type').value;
+            var service = document.getElementById('service').value;
+            var flag = document.getElementById('flag').value;
+            var src_bytes = document.getElementById('src_bytes').value;
+            var dst_bytes = document.getElementById('dst_bytes').value;
+            var land = document.getElementById('land').value;
+            var wrong_fragment = document.getElementById('wrong_fragment').value;
+            var urgent = document.getElementById('urgent').value;
+            var hot = document.getElementById('hot').value;
+            var num_failed_logins = document.getElementById('num_failed_logins').value;
+            var logged_in = document.getElementById('logged_in').value;
+            var num_compromised = document.getElementById('num_compromised').value;
+            var root_shell = document.getElementById('root_shell').value;
+            var su_attempted = document.getElementById('su_attempted').value;
+            var num_root = document.getElementById('num_root').value;
+            var num_file_creations = document.getElementById('num_file_creations').value;
+            var num_shells = document.getElementById('num_shells').value;
+            var num_access_files = document.getElementById('num_access_files').value;
+            var num_outbound_cmds = document.getElementById('num_outbound_cmds').value;
+            var is_host_login = document.getElementById('is_host_login').value;
+            var is_guest_login = document.getElementById('is_guest_login').value;
+            var count = document.getElementById('count').value;
+            var srv_count = document.getElementById('srv_count').value;
+            var serror_rate = document.getElementById('serror_rate').value;
+            var srv_serror_rate = document.getElementById('srv_serror_rate').value;
+            var rerror_rate = document.getElementById('rerror_rate').value;
+            var srv_rerror_rate = document.getElementById('srv_rerror_rate').value;
+            var same_srv_rate = document.getElementById('same_srv_rate').value;
+            var diff_srv_rate = document.getElementById('diff_srv_rate').value;
+            var srv_diff_host_rate = document.getElementById('srv_diff_host_rate').value;
+            var dst_host_count = document.getElementById('dst_host_count').value;
+            var dst_host_srv_count = document.getElementById('dst_host_srv_count').value;
+            var dst_host_same_srv_rate = document.getElementById('dst_host_same_srv_rate').value;
+            var dst_host_diff_srv_rate = document.getElementById('dst_host_diff_srv_rate').value;
+            var dst_host_same_src_port_rate = document.getElementById('dst_host_same_src_port_rate').value;
+            var dst_host_srv_diff_host_rate = document.getElementById('dst_host_srv_diff_host_rate').value;
+            var dst_host_serror_rate = document.getElementById('dst_host_serror_rate').value;
+            var dst_host_srv_serror_rate = document.getElementById('dst_host_srv_serror_rate').value;
+            var dst_host_rerror_rate = document.getElementById('dst_host_rerror_rate').value;
+            var dst_host_srv_rerror_rate = document.getElementById('dst_host_srv_rerror_rate').value;
+            var level = documnet.getElementById('level').value;
+
+            // Construct JSON object with input data
+            var inputData = {
+                'duration': duration,
+                'protocol_type': protocol_type,
+                'service': service,
+                'flag': flag,
+                'src_bytes': src_bytes,
+                'dst_bytes': dst_bytes,
+                'land': land,
+                'wrong_fragment': wrong_fragment,
+                'urgent': urgent,
+                'hot': hot,
+                'num_failed_logins': num_failed_logins,
+                'logged_in': logged_in,
+                'num_compromised': num_compromised,
+                'root_shell': root_shell,
+                'su_attempted': su_attempted,
+                'num_root': num_root,
+                'num_file_creations': num_file_creations,
+                'num_shells': num_shells,
+                'num_access_files': num_access_files,
+                'num_outbound_cmds': num_outbound_cmds,
+                'is_host_login': is_host_login,
+                'is_guest_login': is_guest_login,
+                'count': count,
+                'srv_count': srv_count,
+                'serror_rate': serror_rate,
+                'srv_serror_rate': srv_serror_rate,
+                'rerror_rate': rerror_rate,
+                'srv_rerror_rate': srv_rerror_rate,
+                'same_srv_rate': same_srv_rate,
+                'diff_srv_rate': diff_srv_rate,
+                'srv_diff_host_rate': srv_diff_host_rate,
+                'dst_host_count': dst_host_count,
+                'dst_host_srv_count': dst_host_srv_count,
+                'dst_host_same_srv_rate': dst_host_same_srv_rate,
+                'dst_host_diff_srv_rate': dst_host_diff_srv_rate,
+                'dst_host_same_src_port_rate': dst_host_same_src_port_rate,
+                'dst_host_srv_diff_host_rate': dst_host_srv_diff_host_rate,
+                'dst_host_serror_rate': dst_host_serror_rate,
+                'dst_host_srv_serror_rate': dst_host_srv_serror_rate,
+                'dst_host_rerror_rate': dst_host_rerror_rate,
+                'dst_host_srv_rerror_rate': dst_host_srv_rerror_rate,
+                'level': level
+            };
+
+            // Send input data to the backend
+            fetch('/predict', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(inputData)
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Display prediction result
+                document.getElementById('predictionResult').innerText = 'Predicted Attack Type: ' + data.prediction;
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        }
+    </script>
+</body>
+</html>
