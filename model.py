@@ -57,7 +57,6 @@ data = data[original_columns]
 
 # Convert categorical variables to numerical using label encoding
 from sklearn.preprocessing import LabelEncoder
-
 categorical_columns = ['protocol_type', 'service', 'flag']
 label_encoders = {}
 

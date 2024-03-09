@@ -153,7 +153,7 @@ def index():
 #         # Log any errors that occur during prediction
 #         print('Prediction error:', e)
 #         return jsonify({'error': str(e)})
-
+import pandas as pd
 @app.route('/predict', methods=['POST'])
 def predict():
     try:
@@ -162,12 +162,18 @@ def predict():
         # Log input data received
         print('Input data received:', data)
         # Preprocess input data (convert to DataFrame, perform any necessary transformations)
+        # Convert input data to DataFrame
+        input_df = pd.DataFrame(data)
+        
+        # Preprocess input data (perform any necessary transformations)
+        # Example: You might need to handle categorical variables or scale numerical features
+        
         # Perform prediction
-        prediction = model.predict(data)
+        prediction = model.predict(input_df)
         # Log prediction result
         print('Prediction result:', prediction)
         # Return prediction
-        return jsonify({'prediction': prediction})
+        return jsonify({'prediction': prediction[0]})
     except Exception as e:
         # Log any errors that occur during prediction
         print('Prediction error:', e)
